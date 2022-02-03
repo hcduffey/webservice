@@ -16,13 +16,14 @@ var (
 	nextID = 1
 )
 
+// CRUD operations on the User object array
 func GetUsers() []*User {
 	return users
 }
 
 func AddUser(u User) (User, error) {
 	if u.ID != 0 {
-		return User{}, errors.New("New user must not include an id!")
+		return User{}, errors.New("new user must not include an id")
 	}
 	u.ID = nextID
 	nextID++
@@ -37,7 +38,7 @@ func GetUserByID(id int) (User, error) {
 		}
 	}
 
-	return User{}, fmt.Errorf("User with ID: '%v' not found.", id)
+	return User{}, fmt.Errorf("User with ID: '%v' not found", id)
 }
 
 func UpdateUser(u User) (User, error) {
